@@ -98,3 +98,97 @@ body {
     width: 60%;
   }
 }
+
+/* index.css */
+
+/* Reset default margin and padding */
+body,
+h1,
+p,
+form,
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color for the entire page */
+
+/* Center the content vertically and horizontally */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Style the heading */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Style the paragraph */
+p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Style the form */
+form {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 1.5rem;
+}
+
+/* Style form input fields */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  color: #444;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Style the submit button */
+button {
+  border-radius: 9px;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Add responsive styles if needed */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+.contact-page {
+  background-image: url("../public/images/R.jpeg");
+  background-size: cover;
+  background-position: center;
+}
