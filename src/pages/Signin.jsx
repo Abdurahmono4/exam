@@ -29,8 +29,8 @@ function Signin() {
   return (
     <div className="min-h-screen grid place-items-center">
       <div className="max-w-96  w-full items-center">
-        <FormInput type="email" label="Email:" name="email" />
-        <FormInput type="password" label="Password:" name="password" />
+        <FormInput type="email" label="Email:" name="Email" />
+        <FormInput type="password" label="Password:" name="Password" />
         <Form method="post">
           <div>
             <button className="btn btn-secondary w-full mb-5" type="submit">

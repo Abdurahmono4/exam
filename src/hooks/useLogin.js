@@ -11,6 +11,7 @@ function useLogin() {
   const { dispatch } = useContext(GlobalContext);
 
   const signInEmailAndPassword = (email, password) => {
+    console.log(email);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
