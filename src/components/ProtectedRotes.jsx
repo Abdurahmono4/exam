@@ -4,7 +4,7 @@ function ProtectedRotes({ children, user }) {
   if (user) {
     return children;
   } else {
-    return <Navigate to="/signup" />;
+    return <Navigate to="/signin" />;
   }
 }
 
