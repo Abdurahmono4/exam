@@ -1,5 +1,5 @@
 function About() {
-  return <div className="align-element">About </div>;
+  return <div></div>;
 }
 
 export default About;

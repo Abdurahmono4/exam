@@ -1,0 +1,55 @@
+{
+  "recipies": [
+    {
+      "id": "1",
+      "title": "Osh",
+      "image": "https://resto.uz/data/resto/43/4250/palovxon-osh-markazi-2874.jpg",
+      "ingredients": [
+        "guruch",
+        "sabzi",
+        "zira",
+        "go'sht",
+        "yog'",
+        "piyoz",
+        "tuz",
+        "suv"
+      ],
+      "cookingTime:": "60 minutes",
+      "method": "Lorem ipsum dolor sit amet cl nihil"
+    },
+    {
+      "id": "2",
+      "title": "Mastava",
+      "image": "https://th.bing.com/th/id/OIP.2vD_QCWZvUwniLPSNr6_eAHaE8?rs=1&pid=ImgDetMain",
+      "ingredients": [
+        "guruch",
+        "sabzi",
+        "zira",
+        "go'sht",
+        "yog'",
+        "piyoz",
+        "tuz",
+        "suv"
+      ],
+      "cookingTime:": "60 minutes",
+      "method": "Lorem ipsum dolor sit amet celit. "
+    },
+    {
+      "id": "3",
+      "title": "Dessert",
+      "image": "https://th.bing.com/th/id/OIP.SFmZoeTYOla0uWFetnZIogHaFs?rs=1&pid=ImgDetMain",
+      "ingredients": [
+        "guruch",
+        "sabzi",
+        "zira",
+        "go'sht",
+        "yog'",
+        "piyoz",
+        "tuz",
+        "suv"
+      ],
+      "cookingTime:": "60 minutes",
+      "method": "Lorem ipsum dolor sit amet  "
+    }
+  ]
+}
