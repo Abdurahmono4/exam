@@ -57,11 +57,7 @@ function App() {
     },
     {
       path: "/signup",
-      element: user ? (
-        <Navigate to="./components/ProtectedRotes.jsx" />
-      ) : (
-        <Signup />
-      ),
+      element: user ? <Navigate to="/" /> : <Signup />,
     },
   ]);
 
