@@ -6,13 +6,16 @@ function Signup() {
   console.log(user);
   return (
     <div className="min-h-screen grid place-items-center">
-      <div>
-        <button onClick={signupWithGoogle} className="btn btn-secondary">
+      <div className="max-w-96  w-full">
+        <button
+          onClick={signupWithGoogle}
+          className="btn btn-secondary w-full mb-5"
+        >
           <FcGoogle className="w-10 h-10 mr-2 " />
           <span className="text-2xl">Google</span>
         </button>
         <p>
-          Are you alredy registre
+          Are you alredy registered?
           <Link to="/signin">Login</Link>
         </p>
       </div>
