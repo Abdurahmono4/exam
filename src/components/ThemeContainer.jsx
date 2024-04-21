@@ -1,9 +1,8 @@
-import { FaSun, FaMoon } from "react-icons/fa";
-
+import { FaSun, FaMoon } from "react-icons/fa6";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/useGlobalContext";
 
-const colors = ["#8DECB4", "#76ABAE", "#59D5E0"];
+const colors = ["#8DECB4", "#F0EBE3", "#59D5E0"];
 
 const themes = {
   winter: "winter",

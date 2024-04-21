@@ -7,7 +7,7 @@ function FormInput({ label, type, name }) {
       <input
         type="type"
         name="name"
-        placeholder="Type here"
+        placeholder="Please fill the input"
         className="input input-bordered w-full"
       />
     </label>

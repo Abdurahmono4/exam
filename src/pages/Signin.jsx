@@ -1,9 +1,9 @@
 import { useSignup } from "../hooks/useSignup";
+import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, Form, useActionData } from "react-router-dom";
-import FormInput from "../components/FormInput";
-import { useEffect } from "react";
 
+import FormInput from "../components/FormInput";
 import useLogin from "../hooks/useLogin";
 
 export const action = async ({ request }) => {
@@ -13,9 +13,9 @@ export const action = async ({ request }) => {
 
   return { email, password };
 };
+
 function Signin() {
   const userSignin = useActionData();
-
   const { signInEmailAndPassword } = useLogin();
 
   useEffect(() => {
@@ -25,28 +25,27 @@ function Signin() {
   }, [userSignin]);
 
   const { signupWithGoogle, user, error } = useSignup();
-
   return (
     <div className="min-h-screen grid place-items-center">
-      <div className="max-w-96  w-full items-center">
-        <FormInput type="email" label="Email:" name="Email" />
-        <FormInput type="password" label="Password:" name="Password" />
+      <div className="max-w-96 w-full">
         <Form method="post">
+          <FormInput type="email" label="Email:" name="Email" />
+          <FormInput type="password" label="Password:" name="Password" />
           <div>
-            <button className="btn btn-secondary w-full mb-5" type="submit">
-              Submit
+            <button className="btn btn-secondary w-full mb-3" type="sumbit">
+              Sumbit
             </button>
             <button
               type="button"
               onClick={signupWithGoogle}
               className="btn btn-secondary w-full mb-5"
             >
-              <FcGoogle className="w-10 h-10 mr-2 " />
-              <span className="text-2xl">Google</span>
+              <FcGoogle className="text-3xl" />
+              <span className="text-xl">Google</span>
             </button>
             <p className="text-center">
               If you dont have account
-              <Link to="/signup" className="link text-cyan-500">
+              <Link className="link text-cyan-400" to="/signup">
                 Signup
               </Link>
             </p>

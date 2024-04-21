@@ -15,8 +15,7 @@ export const action = async ({ request }) => {
 
 function Signup() {
   const userSignup = useActionData();
-  console.log(userSignup);
-  const { signupWithGoogle, user, error, signupWithPasswordAndEmail } =
+  const { signupWithGoogle, signupWithPasswordAndEmail, user, error } =
     useSignup();
   useEffect(() => {
     if (userSignup) {
@@ -25,13 +24,13 @@ function Signup() {
   }, [userSignup]);
   return (
     <div className="min-h-screen grid place-items-center">
-      <div className="max-w-96  w-full items-center">
-        <FormInput type="text" label="Name:" />
-        <FormInput type="email" label="Email:" />
-        <FormInput type="password" label="Password:" />
+      <div className="max-w-96 w-full">
         <Form method="post">
-          <div className="items-center">
-            <button className="btn btn-secondary w-full mb-5" type="submit">
+          <FormInput type="text" label="Name:" name="Name" />
+          <FormInput type="email" label="Email:" name="Email" />
+          <FormInput type="password" label="Password:" name="Password" />
+          <div>
+            <button className="btn btn-secondary w-full mb-3" type="submit">
               Submit
             </button>
             <button
@@ -39,14 +38,14 @@ function Signup() {
               onClick={signupWithGoogle}
               className="btn btn-secondary w-full mb-5"
             >
-              <FcGoogle className="w-10 h-10 mr-2 " />
+              <FcGoogle className="text-3xl" />
               <span className="text-2xl">Google</span>
             </button>
             <p className="text-center">
-              Are you alredy registered?
-              <Link to="/signin" className="link text-cyan-500">
-                Signin
-              </Link>
+              Are you alreadey registerad ?{" "}
+              <Link className="link text-cyan-400" to="/signin">
+                Login
+              </Link>{" "}
             </p>
           </div>
         </Form>
