@@ -113,9 +113,6 @@ button {
   padding: 0;
 }
 
-/* Set a background color for the entire page */
-
-/* Center the content vertically and horizontally */
 .contact-page {
   display: flex;
   flex-direction: column;
