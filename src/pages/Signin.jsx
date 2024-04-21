@@ -32,8 +32,8 @@ function Signin() {
           <FormInput type="email" label="Email:" name="Email" />
           <FormInput type="password" label="Password:" name="Password" />
           <div>
-            <button className="btn btn-secondary w-full mb-3" type="sumbit">
-              Sumbit
+            <button className="btn btn-secondary w-full mb-3" type="Submit">
+              Submit
             </button>
             <button
               type="button"

@@ -42,10 +42,10 @@ function Signup() {
               <span className="text-2xl">Google</span>
             </button>
             <p className="text-center">
-              Are you alreadey registerad ?{" "}
+              Are you alreadey registerad ?
               <Link className="link text-cyan-400" to="/signin">
                 Login
-              </Link>{" "}
+              </Link>
             </p>
           </div>
         </Form>
