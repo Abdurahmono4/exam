@@ -141,7 +141,6 @@ form {
   margin-top: 1.5rem;
 }
 
-/* Style form input fields */
 .form-group {
   margin-bottom: 1rem;
 }
@@ -160,7 +159,6 @@ textarea {
   font-size: 1rem;
 }
 
-/* Style the submit button */
 button {
   border-radius: 9px;
   width: 100%;
@@ -178,7 +176,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Add responsive styles if needed */
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 1.5rem;
