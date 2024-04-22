@@ -37,7 +37,8 @@ function Home() {
   return (
     <div className="align-element flex items-center flex-col  gap-32 ">
       {recipies && (
-        <RecipiesList recipies={recipies} deleteRecipie={deleteRecipie} />
+        <RecipiesList recipies={recipies} deleteRecipie={deleteRecipie}
+         />
       )}
     </div>
   );

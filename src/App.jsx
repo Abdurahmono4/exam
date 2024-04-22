@@ -78,7 +78,10 @@ function App() {
       type: "AUTH_CHANGE",
     });
   }, []);
-  return <div>{authChange && <RouterProvider router={routes} />}</div>;
+  return <div>{authChange && <RouterProvider router={routes}
+   
+  
+  />}</div>;
 }
 
 export default App;

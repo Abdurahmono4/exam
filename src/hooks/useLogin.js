@@ -9,9 +9,8 @@ function useLogin() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const { dispatch } = useContext(GlobalContext);
-
   const signInEmailAndPassword = (email, password) => {
-    console.log(email);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
