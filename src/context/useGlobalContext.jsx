@@ -10,6 +10,10 @@ const changeState = (state, action) => {
       return { ...state, user: action.payload };
     case "AUTH_CHANGE":
       return { ...state, authChange: true };
+
+    case "CHANGE_THEME":
+      return { ...state, theme: action.payload };
+
     default:
       return state;
   }

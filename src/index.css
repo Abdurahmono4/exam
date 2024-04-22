@@ -161,9 +161,7 @@ textarea {
 
 button {
   border-radius: 9px;
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
+
   border: none;
 
   padding: 0.5rem 1rem;
@@ -224,6 +222,7 @@ button:hover {
 }
 
 .cardAdd {
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   width: 40vw;
@@ -247,12 +246,11 @@ button:hover {
 }
 
 .contact-page {
-  margin-top: -29px;
-  padding-top: -20px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   width: 40vw;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255, 0.1);
   border: none;
   font: bold;
   cursor: pointer;
