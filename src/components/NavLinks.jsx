@@ -21,17 +21,17 @@ const links = [
 function NavLinks() {
   return (
     <>
-     <Link className="px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
+     <Link className=" navlink px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
             to={"/"}
           >
             Home
           </Link>
-          <Link className="px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
+          <Link className=" navlink px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
             to={"/create"}
           >
             Create
           </Link>
-          <Link className="px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
+          <Link className=" navlink px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
             to={"/contact"}
           >
             Contact
