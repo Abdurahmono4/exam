@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
 import { useContext } from "react";
@@ -12,7 +12,7 @@ import { IoMoonOutline } from "react-icons/io5";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const themes = { winter: "winter", dracula: "dracula" };
+const themes = { winter: "winter", dracula: 'dark' };
 
 function darkModeFromLocalStorage() {
   return localStorage.getItem("mode") || themes.winter;
@@ -21,11 +21,12 @@ function darkModeFromLocalStorage() {
 function Navbar() {
   const { navbarBgColor, user } = useContext(GlobalContext);
   console.log("navbar color:", navbarBgColor);
-
+const nav = useNavigate()
+const [ref,setref]=useState();
   const signOutFunc = () => {
     signOut(auth)
       .then(() => {
-        console.log("Sign out");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +38,7 @@ function Navbar() {
   const handleClick = () => {
     const newTheme = theme == themes.winter ? themes.dracula : themes.winter;
     setTheme(newTheme);
-    console.log(setTheme);
+    
   };
 
   useEffect(() => {
@@ -46,11 +47,11 @@ function Navbar() {
 
     // Apply background style for dracula theme
     if (theme === themes.dracula) {
-      document.body.style.backgroundColor = "rgba(0,0,0,0.67)";
-      document.body.style.color = "white";
+
+      document.body.style.color = "";
     } else {
       document.body.style.backgroundColor = "";
-      document.body.style.color = ""; // Reset for winter theme
+      document.body.style.color = "white"; // Reset for winter theme
     }
   }, [theme]);
 
@@ -89,8 +90,8 @@ function Navbar() {
               {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
-                onClick={handleClick}
-                defaultChecked={theme == "winter" ? false : true}
+                onClick={()=>handleClick()}
+                defaultChecked={theme == "winter" ? true : false}
               />
 
               {/* sun icon */}

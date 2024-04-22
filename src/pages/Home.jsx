@@ -5,7 +5,7 @@ function Home() {
   const [recipies, setRecipies] = useState(null);
   const [check, setCheck] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:3000/recipies")
+    fetch("http://localhost:3000/recipies/")
       .then((data) => {
         return data.json();
       })

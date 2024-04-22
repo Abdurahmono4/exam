@@ -4,20 +4,11 @@
 
 @layer components {
   .align-element {
-    @apply max-w-[1200px] w-full px-5 mx-auto;
+    @apply max-w-[1200px] w-full px-5 mx-auto mt-10;
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  background: url(/public/images/istockphoto-1463371608-2048x2048.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 
-  font-family: "Poppins", sans-serif;
-}
 
 @tailwind base;
 @tailwind components;
@@ -28,17 +19,7 @@ html {
   line-height: 1.5;
   font-weight: 400;
 }
-body {
-  background: url("../public/istockphoto-1463371608-2048x2048.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-blend-mode: soft-light;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.87);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
+
 .container {
   width: 100%;
   max-width: 1100px;
