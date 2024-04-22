@@ -16,6 +16,11 @@ const links = [
     text: "Contact",
     link: "/contact",
   },
+  {
+    id: 4,
+    text: "About",
+    link: "/about",
+  }
 ];
 
 function NavLinks() {
@@ -36,6 +41,13 @@ function NavLinks() {
           >
             Contact
           </Link>
+          <Link className=" navlink px-3 py-2 hover:bg-base-content hover:text-white rounded-lg "
+            to={"/about"}
+          >
+            About
+          </Link>
+
+
     </>
   );
 }

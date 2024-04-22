@@ -1,111 +1,119 @@
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import {} from "react-router-dom";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
+
+//actions
+export const action = async ({request })=>{
+  let formData = await request.formData();
+  // let name = formData.get("Name");
+  // let email = formData.get("Email");
+  // let password = formData.get("Password");
+}
+
+
 function Create() {
-  // eslint-disable-next-line no-unused-vars
-  const [newRecipe, setNewRecipe] = useState({});
+  const { data, postData } = useFetch("http://localhost:3000/recepts", "POST");
   const navigate = useNavigate();
   const [ingredient, setIngredient] = useState("");
-  const [title, setTitle] = useState("");
-  const [method, setMethod] = useState("");
-  const [image, setImage] = useState("");
-  const [cookingTime, setCookingTime] = useState("");
-
   const [ingredients, setIngredients] = useState([]);
-
+  const [name, setName] = useState("");
+  const [body, setBody] = useState("");
+  const [image, setImage] = useState("");
+  const [time, setTime] = useState("");
+  function handleCreate() {
+    toast.success("added new recipie successfully");
+  }
   const addIngredient = (e) => {
     e.preventDefault();
     if (ingredient.trim()) {
-      if (!ingredients.includes(ingredient) && ingredient.trim() !== "") {
-        setIngredients((prev) => [...prev, ingredient]);
-        toast.success("This Item is added successfully");
-        // Corrected function name
-        // Reset the ingredient
+      if (!ingredients.includes(ingredient)) {
+        setIngredients((prev) => {
+          toast.success("Added successfully");
+          console.log(ingredient);
+          return [...prev, ingredient];
+        });
       } else {
-        toast.error("Ingredient already exists");
+        toast.error("Already has been added ");
       }
     } else {
-      toast.error("Ingredient cannot be empty");
+      toast.error("Write an ingredient");
     }
     setIngredient("");
   };
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-
-    const newRecipe = {
-      title,
-      method,
-      image,
-      cookingTime: `${cookingTime}minutes`,
+    const newRecept = {
+      name,
+      time,
+      body,
       ingredients,
+      image,
     };
-    console.log(newRecipe);
-    fetch("http://localhost:3000/recipies", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newRecipe),
-    })
-      .then(() => navigate("/"))
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    postData(newRecept);
+  }
+  useEffect(() => {
+    if (data) {
+      navigate("/");
+    }
+  }, [data]);
 
-  console.log(newRecipe);
   return (
-    <div className="cardAdd ">
-      <h1 className="text-3xl text-center font-bold mb-6 -mt-3 ">
-        Create New Recipe
+    <div className=" align-element ml-auto mr-auto ">
+      <h1 className="text-3xl text-center font-bold mb-10">
+        Create New Recipie
       </h1>
 
       <form
-        onSubmit={() => handleSubmit}
-        className="flex items-center flex-col gap-4 "
+        onSubmit={()=>handleSubmit()}
+        className="flex items-center flex-col gap-5 align-element"
       >
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Title</span>
+            <span className="label-text">Name</span>
           </div>
           <input
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-        </label>{" "}
+        </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
             <span className="label-text">Ingredients:</span>
           </div>
-          <div
-            className="flex
-          gap-3"
-          >
+          <div className="flex gap-2">
             <input
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
-              onChange={(e) => setIngredient(e.target.value)}
+              onChange={(e) => {
+                setIngredient(e.target.value);
+              }}
               value={ingredient}
             />
-            <button className="btn zero btn-secondary" onClick={addIngredient}>
+            <button onClick={addIngredient} className="btn-secondary btn">
               Add
             </button>
           </div>
-          <div className="mt-1">
+          <div>
             <p>
-              Ingredients:{""}
-              {ingredients.map((ing) => {
-                return <span key={ing}>{ing},</span>;
+              Ingredients:{" "}
+              {ingredients.map((ing, index) => {
+                if (index === ingredients.length - 1) {
+                  return <span key={index}>{ing}</span>;
+                  toast.success("Write an ingredient");
+                } else {
+                  return <span key={index}>{ing}, </span>;
+                  toast.error("Write an ingredient");
+                }
               })}
             </p>
           </div>
         </label>
+
         <label className="form-control w-full max-w-xs">
           <div className="label">
             <span className="label-text">Cooking Time</span>
@@ -114,34 +122,38 @@ function Create() {
             type="number"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setCookingTime(e.target.value)}
-            value={cookingTime}
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
           />
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Image:</span>
+            <span className="label-text">Image URL:</span>
           </div>
           <input
             type="url"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setImage(e.target.value)}
             value={image}
+            onChange={(e) => setImage(e.target.value)}
           />
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Method</span>
+           Method
           </div>
           <textarea
             className="textarea textarea-bordered h-24"
-            placeholder="Bio"
-            onChange={(e) => setMethod(e.target.value)}
-            value={method}
+            placeholder="please enter your method"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
           ></textarea>
         </label>
-        <button className="btn btn-secondary w-full max-w-xs mb-3">
+
+        <button
+          onClick={handleCreate}
+          className="btn btn-secondary w-full max-w-xs"
+        >
           Submit
         </button>
       </form>

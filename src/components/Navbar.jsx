@@ -47,11 +47,10 @@ const [ref,setref]=useState();
 
     // Apply background style for dracula theme
     if (theme === themes.dracula) {
-
-      document.body.style.color = "";
+      document.body.style.color = "white";
     } else {
       document.body.style.backgroundColor = "";
-      document.body.style.color = "white"; // Reset for winter theme
+      document.body.style.color = ""; // Reset for winter theme
     }
   }, [theme]);
 

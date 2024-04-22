@@ -7,11 +7,12 @@ import { useEffect } from "react";
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let name = formData.get("Name");
+  let photo = formData.get("photo");
   let email = formData.get("Email");
   let password = formData.get("Password");
 
-  return { name, email, password };
-};
+  return { name,photo, email, password };
+}; 
 
 function Signup() {
   const userSignup = useActionData();
@@ -19,16 +20,22 @@ function Signup() {
     useSignup();
   useEffect(() => {
     if (userSignup) {
-      signupWithPasswordAndEmail(userSignup.email, userSignup.password);
+      signupWithPasswordAndEmail(
+        userSignup.name,
+        userSignup.photo,
+        userSignup.email,
+         userSignup.password
+        );
     }
   }, [userSignup]);
   return (
     <div className="min-h-screen grid place-items-center">
       <div className="max-w-96 w-full">
         <Form method="POST">
-          <FormInput type="text" label="Name:" name="Name" />
+        <FormInput type="text" label="User name:" name="displayName" />
+          <FormInput type="url"  label="Photo URL:" name="photoURL" />
           <FormInput type="email" label="Email:" name="Email" />
-          <FormInput type="password" label="Password:" name="Password" />
+          <FormInput type="password" label="Password:" name="password" />
           <div>
             <button className="btn btn-secondary w-full mb-3" type="submit">
               Submit

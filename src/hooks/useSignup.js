@@ -2,12 +2,14 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/fireBaseConfig";
 import { useState } from "react";
 
 import { useContext } from "react";
 import { GlobalContext } from "../context/useGlobalContext";
+import { update } from "firebase/database";
 
 function useSignup() {
   const [user, setUser] = useState(null);
@@ -20,7 +22,7 @@ function useSignup() {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
+        setUser(user); 
         dispatch({ type: "  SIGN_IN", payload: user });
       })
       .catch((error) => {
@@ -28,12 +30,16 @@ function useSignup() {
         setError(errorMessage);
       });
   };
-  const signupWithPasswordAndEmail = (email, password) => {
-    console.log(email);
-    createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => {
+  const signupWithPasswordAndEmail = (name,email,photo,password) => {
+    console.log(email,password);
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(async(userCredential) => {
+      await updateProfile(auth, userCredential,{
+        displayName: name,
+        photoURL: photo,
+      })
         const user = userCredential.user;
-        setUser(user);
+        setUser(user);  
         dispatch({ type: "  SIGN_IN", payload: user }).catch((error) => {
           const errorMessage = error.message;
           setError(errorMessage);

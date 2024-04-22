@@ -13,6 +13,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Create from "./pages/Create";
 
 // components
 import ProtectedRotes from "./components/ProtectedRotes";
@@ -29,7 +30,8 @@ import { onAuthStateChanged } from "firebase/auth";
 //action
 import { action as signupAction } from "./pages/Signup";
 import { action as signinAction } from "./pages/Signin";
-import Create from "./pages/Create";
+import { action as createAction } from "./pages/Create";
+
 
 function App() {
   const { user, dispatch, authChange } = useContext(GlobalContext);
@@ -49,6 +51,7 @@ function App() {
         {
           path: "/create",
           element: <Create />,
+          action: createAction
         },
         {
           path: "/contact",
